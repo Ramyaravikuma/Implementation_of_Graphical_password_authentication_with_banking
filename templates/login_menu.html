@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" content="with=device-width,intial-scale=1.0">
+    <title>Graphical Password to prevent SS attack</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700&display=swap"rel="stylesheet">
+    </head>
+    <body>
+    <section class="header" style="background-image: url('static/image/login.jpg')">
+    <nav>
+      <h2 style="color:rgb(207, 221, 225)">GP Secure</h2>
+    <!-- <img src="{{url_for('static', filename='image/logo.png')}}"> -->
+    <div class="nav-links">
+   
+    <ul>
+    <li><a href="{{ url_for('deposit') }}">DEPOSIT</a></li>
+    <li><a href="{{ url_for('withdrawal') }}">WITHDRAWAL</a></li>
+    <li> <a href="{{ url_for('trans') }}">TRANSACTION HISTORY</a></li>
+    <li> <a href="{{ url_for('account_transfer')}}">TRANSFER to ACCOUNT</a></li>
+    <li><a href="{{ url_for('index') }}">LOGOUT</a></li>          
+    </ul>
+    </div>
+    </nav>
+        
+      <div class="content">
+        {%with messages=get_flashed_messages()%}
+      {%if messages%}
+      {%for message in messages%}
+      <p>{{message}}</p>
+      {%endfor%}
+      {%endif%}
+      {%endwith%}
+      <h3>Hi {{amount[0]}},HAVE A GOOD DAY</h3>
+      <h3> Your current balance is :<span>{{amount[1]}}</span></h3>            
+    </div> 
+        </section>
+        
+</body>
+</html>

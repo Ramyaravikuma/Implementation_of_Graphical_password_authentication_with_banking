@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" content="with=device-width,intial-scale=1.0">
+    <title>Graphical Password to prevent SS attack</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700&display=swap"rel="stylesheet">
+    </head>
+    <body>
+    <section class="header" style="background-image: url('static/image/login.jpg')">
+    <nav>
+        <h2 style="color:rgb(207, 221, 225)">GP Secure</h2>
+    <!-- <img src="{{url_for('static', filename='image/logo.png')}}"> -->
+    <div class="nav-links">
+   
+    <ul>
+    <li><a href="{{ url_for('deposit') }}">DEPOSIT</a></li>
+    <li><a href="{{ url_for('withdrawal') }}">WITHDRAWAL</a></li>
+    <li> <a href="{{ url_for('trans') }}">TRANSACTION HISTORY</a></li>
+    <li> <a href="{{ url_for('account_transfer')}}">TRANSFER to ACCOUNT</a></li>
+    <li><a href="{{ url_for('index') }}">LOGOUT</a></li>          
+    </ul>
+    </div>
+    </nav>
+        
+      
+        <div class="reg">
+            <center>
+            <form id="reg" action="{{ url_for('deposit') }}" method="POST">
+
+                <h3>Deposit Form</h3>
+                <!-- <label>Account No</label><br>
+                <input type="text" name="num" id="num" placeholder="eg::3"><br><br> -->
+                <label>amount</label><br>
+                <input type="number" name="anum" id="anum" placeholder="eg:400"><br><br>
+                
+            <br>
+            <br>
+            <button class="button is-block is-info is-large is-fullwidth">submit</button>
+            <br>
+        </form>
+        <h3> Your current balance is :<span>{{account}}</span></h3> 
+    </center> 
+        </div>
+         
+    </body>
+</html>

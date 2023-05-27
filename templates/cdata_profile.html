@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" content="with=device-width,intial-scale=1.0">
+    <title>Graphical Password to prevent SS attack</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700&display=swap"rel="stylesheet">
+    </head>
+    <style>
+    body  {
+      background-image: url('static/image/login.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+    </style>
+    <body>
+    <section class="header" style="background-image: url('static/image/login.jpg')">
+    <nav>
+      <h2 style="color:rgb(207, 221, 225)">GP Secure</h2>
+    <!-- <img src="{{url_for('static', filename='image/logo.png')}}"> -->
+    <div class="nav-links">
+      <ul>
+        <li><a href="{{url_for('money')}}">ML possible</a></li>
+        <li><a href="{{url_for('admin_profile')}}">ALL Profile</a></li> 
+        <li><a href="{{ url_for('cdata') }}" >CDATA SEARCH</a></li>    
+        <li><a href="{{url_for('cdata_profile')}}">CHISTORY</a></li>
+        <li><a href="{{url_for('password_reset')}}">CPassword reset</a></li>
+        <li><a href="{{url_for('index')}}">LOGOUT</a></li>       
+        </ul>
+        </div>
+        </nav>
+ 
+        <center>
+            <h2 style="color: red;font-size: 15px">Transaction history</h2></center>>
+        <div class="reg">
+            <form id="reg" action="{{ url_for('cdata_profile') }}" method="POST">
+
+            
+          <label>Account No</label><br>
+          <input type="text" name="num" id="num" placeholder="eg::3"><br><br>
+          
+            <br>
+            <br>
+            <button class="button is-block is-info is-large is-fullwidth">submit</button>
+            <br>
+        
+       
+        </form>
+      </div>
+
+  {% if account %}       
+  <center><h2>customers transaction details</h2></center>
+  
+  <table class="content-table">
+    <thead>
+    <tr>
+      <th>Account_no</th>
+      <th>customer_name</th>
+      <th>balance</th>
+      <th>transaction Type</th>
+      <th>Transaction amount</th>
+      <th>Transaction Date</th>
+    </tr>
+  </thead>
+    {% for account1 in account %}
+   <tbody>
+    <tr>
+      <td>{{account1[0]}}</td>
+      <td>{{account1[1]}}</td>
+      <td>{{account1[2]}}</td>
+      <td>{{account1[3]}}</td>
+      <td>{{account1[4]}}</td>
+      <td>{{account1[5]}}</td>
+    </tr>
+  </tbody>
+    {% endfor %}
+    
+  
+  {% endif %}
+  </table>
+  
+</section>
+
+<style>
+  /* table box */
+
+.content-table{
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0,0,0,0.15);
+  position: absolute;
+  left: 20%;
+}
+.content-table thead tr{
+  background-color: rgb(102, 203, 127);
+  color: #fff;
+  text-align: left;
+  font-weight: bold;
+
+}
+.content-table th,.content-table td{
+  padding: 12px 15px;
+}
+.content-table tbody tr{
+  border-bottom: 1 px solid #dddddd;
+
+}
+.content-table tbody tr :nth-of-type(even){
+  background-color: #f3f3f3;
+
+}
+.content-table tbody tr:last-of-type{
+  border-bottom: 2px solid rgb(102, 203, 127);
+}
+
+</style>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" content="with=device-width,intial-scale=1.0">
+    <title>Graphical Password to prevent SS attack</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700&display=swap"rel="stylesheet">
+    </head>
+    <style>
+    body  {
+      background-image: url('static/image/login.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+    </style>
+    <body>
+    <section class="header" style="background-image: url('static/image/login.jpg')">
+    <nav>
+      <h2 style="color:rgb(207, 221, 225)">GP Secure</h2>
+    <!-- <img src="{{url_for('static', filename='image/logo.png')}}"> -->
+    <div class="nav-links">
+      <ul>
+        <li><a href="{{url_for('money')}}">ML possible</a></li> 
+        <li><a href="{{url_for('admin_profile')}}">ALL Profile</a></li> 
+        <li><a href="{{ url_for('cdata') }}" >CDATA SEARCH</a></li>    
+        <li><a href="{{url_for('cdata_profile')}}">CHISTORY</a></li>
+        <li><a href="{{url_for('password_reset')}}">CPassword reset</a></li>
+        <li><a href="{{url_for('index')}}">LOGOUT</a></li>       
+        </ul>
+        </div>
+        </nav>
+        <div class="reg">
+            <form id="reg" action="{{ url_for('cdata') }}" method="POST">
+
+                <label>email</label><br>
+                <input type="email" name="email" id="email" placeholder="eg::xxxyy@gmail.com"><br><br>
+                <label>Account No</label><br>
+                <input type="text" name="account_no" id="account_no" placeholder="eg::9047463">
+                <br><br>
+            <button class="button is-block is-info is-large is-fullwidth">Submit</button>
+                </form>
+                <div class="content">
+                   <center>
+                    {% if data %} 
+                    <h3>Account No: {{data[0]}}</h3>  
+                    <h3>Name: {{data[1]}}</h3>             
+                    <h3>Email: {{data[2]}}</h3>   
+                    <h3>Mobile No: {{data[3]}}</h3>   
+                    <h3>City: {{data[4]}}</h3>   
+                    <h3>Gender: {{data[5]}}</h3>   
+                    <h3>Balance: {{data[6]}}</h3>   
+                    {% endif %}
+                   </center>
+                </div> 
+                    </section>   
+    </body>
+</html>

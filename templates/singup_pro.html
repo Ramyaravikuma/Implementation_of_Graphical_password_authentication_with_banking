@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8" content="with=device-width,intial-scale=1.0">
+    <title>Graphical Password to prevent SS attack</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700&display=swap"rel="stylesheet">
+    </head>
+<body>
+    <style>
+        body  {
+          background-image: url('static/image/login.jpg');
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+        }
+        </style>
+        <body>
+        <section class="header" style="background-image: url('static/image/login.jpg')">
+    <nav>
+        <h2 style="color:rgb(207, 221, 225)">GP Secure</h2>
+        
+        <div class="nav-links">
+
+            <ul>
+                <li><a href="{{ url_for('index') }}">HOME >></a></li>
+                <li><a href="{{ url_for('login') }}" >LOGIN >></a></li>
+                <li><a href="{{url_for('admin')}}">ADMIN >></a></li>
+                <li><a href="{{url_for('contact')}}">CONTACT US >></a></li>
+            </ul>
+        </div>
+        </nav>
+   
+    <center>{%with messages=get_flashed_messages()%}
+    {%if messages%}
+    {%for message in messages%}
+    <h3>{{message}}</h3>
+    {%endfor%}
+    {%endif%}
+    {%endwith%}
+
+<div>
+
+    <h1>Hello ,Welcome</h1>
+  
+    {% if data %}       
+    <h3>Account No: {{data[0]}}</h3>  
+    <h3>Name: {{data[1]}}</h3>             
+    <h3>Email: {{data[2]}}</h3>   
+    <h3>Mobile No: {{data[3]}}</h3>   
+    <h3>City: {{data[4]}}</h3>   
+    <h3>Gender: {{data[5]}}</h3>   
+    <h3>Balance: {{data[6]}}</h3>
+    {% endif %}
+
+</center>
+</div>
+
+</section>
+</body>
+</html>
